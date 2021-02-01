@@ -1,0 +1,5 @@
+#include "../../Config/config.xcconfig"
+
+MAIN_STORY_BOARD = LaunchApp
+BUNDLE_DISPLAY_NAME = Dev - NativeTemplate
+BUNDLE_IDENTIFIER_APPEND = .developerapp
