@@ -1,5 +1,5 @@
 {
-    "deepLink": false,
+    "deepLink": true,
     "pushNotifications": false,
     "bluetooth": true,
     "maps": false,
