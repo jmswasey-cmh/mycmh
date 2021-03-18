@@ -3,5 +3,9 @@
     "pushNotifications": false,
     "bluetooth": true,
     "maps": false,
-    "mapsIos": false
+    "mapsIos": false,
+    "crashlytics": false,
+    "firebaseAndroid": false,
+    "firebaseIos": false,
+    "localNotifications": false
 }
