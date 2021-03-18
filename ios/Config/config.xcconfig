@@ -4,3 +4,5 @@ BUNDLE_DISPLAY_NAME = MyCMH
 BUNDLE_IDENTIFIER = com.morecmh.mobile
 
 RUNTIME_URL = https:\/\/morecmh100-accp.mendixcloud.com/
+
+PRODUCT_NAME = MyCMH
