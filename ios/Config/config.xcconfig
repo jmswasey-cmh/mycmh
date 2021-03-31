@@ -1,7 +1,7 @@
 PRODUCT_BUNDLE_IDENTIFIER = $(BUNDLE_IDENTIFIER)$(BUNDLE_IDENTIFIER_APPEND)
 
 BUNDLE_DISPLAY_NAME = MyCMH
-BUNDLE_IDENTIFIER = com.morecmh.mobile
+BUNDLE_IDENTIFIER = com.mycmh.childrensmuseumhouston
 
 RUNTIME_URL = https:\/\/mycmh.mendixcloud.com
 
