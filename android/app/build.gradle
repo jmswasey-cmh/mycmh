@@ -33,7 +33,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.childrensmuseumhouston.mycmh"
+        applicationId "com.mycmh.childrensmuseumhouston"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         missingDimensionStrategy "react-native-camera", "general"
