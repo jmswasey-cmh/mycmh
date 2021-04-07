@@ -2,13 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>mailto</string>
-		<string>tel</string>
-	</array>
-	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -24,15 +17,35 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.1</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>mycmh</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>mycmh</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
-	<string>5</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>CodePushKey</key>
 	<string></string>
 	<key>GoogleMapsApiKey</key>
 	<string></string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>mailto</string>
+		<string>tel</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -58,10 +71,10 @@
 	<string>The camera can be used to open apps by scanning a QR code.</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>Enabling Face ID allows you quick and secure access to your account.</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>To use that feature the app needs access to your microphone.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>To use that feature the app needs access to your current location.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>To use that feature the app needs access to your microphone.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>To use that feature the app needs access to your photo library.</string>
 	<key>Runtime url</key>
@@ -91,18 +104,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLName</key>
-			<string>mycmh</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>mycmh</string>
-			</array>
-		</dict>
-	</array>
 </dict>
 </plist>
