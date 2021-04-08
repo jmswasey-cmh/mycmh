@@ -1,1 +1,4 @@
-{}
+{
+    "@react-native-community/netinfo": "5.9.7",
+    "react-native-inappbrowser-reborn": "3.4.0"
+}
