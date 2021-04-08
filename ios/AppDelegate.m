@@ -9,24 +9,27 @@
 @synthesize shouldOpenInLastApp;
 
 - (BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  MendixAppDelegate.delegate = self;
   [MendixAppDelegate application:application didFinishLaunchingWithOptions:launchOptions];
   [self setupUI];
-  
+
   NSBundle *mainBundle = [NSBundle mainBundle];
   NSString *targetName = [mainBundle objectForInfoDictionaryKey:@"TargetName"] ?: @"";
 
-  if ([targetName  isEqual: @"dev"]) {
+  if ([targetName isEqual: @"dev"]) {
     IQKeyboardManager.sharedManager.enable = NO;
 
-    if (launchOptions == nil) {
+    self.window = [[MendixReactWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"LaunchApp" bundle:nil];
+    self.window.rootViewController = [storyboard instantiateInitialViewController];
+    [self.window makeKeyAndVisible];
+    [self.window setUserInteractionEnabled:YES];
+
+    NSString *url = [AppPreferences getAppUrl];
+    if (launchOptions == nil || url == nil) {
       return YES;
     }
 
-    NSString *url = [AppPreferences getAppUrl];
-    if (url == nil) {
-      return YES;
-    }
-    
     shouldOpenInLastApp = YES;
     NSURL *bundleUrl = [AppUrl forBundle:url port:[AppPreferences getRemoteDebuggingPackagerPort] isDebuggingRemotely:[AppPreferences remoteDebuggingEnabled] isDevModeEnabled:[AppPreferences devModeEnabled]];
     NSURL *runtimeUrl = [AppUrl forRuntime:url];
@@ -35,7 +38,7 @@
 
     return YES;
   }
-  
+
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   self.window.rootViewController = [UIViewController new];
   [self.window makeKeyAndVisible];
@@ -47,7 +50,7 @@
   }
   NSURL *runtimeUrl = [AppUrl forRuntime:[url stringByReplacingOccurrencesOfString:@"\\" withString:@""]];
   NSURL *bundleUrl = [ReactNative.instance getJSBundleFile];
-  
+
   if (bundleUrl != nil) {
     [ReactNative.instance setup:[[MendixApp alloc] init:nil bundleUrl:bundleUrl runtimeUrl:runtimeUrl warningsFilter:none isDeveloperApp:NO clearDataAtLaunch:NO splashScreenPresenter:[SplashScreenPresenter new]] launchOptions:launchOptions];
     [ReactNative.instance start];
@@ -96,5 +99,17 @@ fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHand
   if (@available(iOS 13.4, *)) {
     [UIDatePicker appearance].preferredDatePickerStyle = UIDatePickerStyleWheels;
   }
+}
+
+- (void) userNotificationCenter:(UNUserNotificationCenter *)center
+        willPresentNotification:(UNNotification *)notification
+          withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
+  [MendixAppDelegate userNotificationCenter:center willPresentNotification:notification withCompletionHandler:completionHandler];
+}
+
+- (void) userNotificationCenter:(UNUserNotificationCenter *)center
+    didReceiveNotificationResponse:(UNNotificationResponse *)response
+             withCompletionHandler:(void (^)(void))completionHandler {
+  [MendixAppDelegate userNotificationCenter:center didReceiveNotificationResponse:response withCompletionHandler:completionHandler];
 }
 @end

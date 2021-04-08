@@ -11,25 +11,34 @@
             }
         }
     },
-    "pushNotifications": {
+    "crashlytics": {
         "android": {
-            "externalDependencies": [
-                "com.google.firebase:firebase-messaging:20.1.2",
-                "me.leolin:ShortcutBadger:1.1.22@aar"
-            ],
-            "packageListEntries": {
-                "imports": [
-                    "import io.invertase.firebase.messaging.RNFirebaseMessagingPackage;",
-                    "import io.invertase.firebase.notifications.RNFirebaseNotificationsPackage;"
-                ],
-                "packageClassInstances": [
-                    "new RNFirebaseMessagingPackage()",
-                    "new RNFirebaseNotificationsPackage()"
-                ]
-            },
             "gradle": {
                 "classpaths": [
-                    "com.google.gms:google-services:4.2.0"
+                    "com.google.firebase:firebase-crashlytics-gradle:2.2.0"
+                ],
+                "plugins": [
+                    "com.google.firebase.crashlytics"
+                ]
+            },
+            "externalDependencies": [
+                "com.google.firebase:firebase-analytics"
+            ]
+        },
+        "ios": {
+            "pods": {
+                "Firebase/Analytics": {}
+            }
+        }
+    },
+    "localNotifications": {
+        "android": {
+            "externalDependencies": [
+                "me.leolin:ShortcutBadger:1.1.22@aar"
+            ],
+            "gradle": {
+                "classpaths": [
+                    "com.google.gms:google-services:4.3.3"
                 ],
                 "plugins": [
                     "com.google.gms.google-services"
@@ -40,42 +49,44 @@
             "AppDelegate": {
                 "imports": [
                     "#import <Firebase.h>",
-                    "#import \"RNFirebase/RNFirebaseNotifications.h\"",
-                    "#import \"RNFirebase/RNFirebaseMessaging.h\""
+                    "#import <RNCPushNotificationIOS.h>"
                 ],
                 "didFinishLaunchingWithOptions": [
                     "[FIRApp configure];",
-                    "[RNFirebaseNotifications configure];"
+                    "UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];",
+                    "center.delegate = MendixAppDelegate.delegate;"
                 ],
-                "didReceiveLocalNotification": [
-                    "[[RNFirebaseNotifications instance] didReceiveLocalNotification:notification];"
+                "willPresentNotification": [
+                    "completionHandler(UNNotificationPresentationOptionSound | UNNotificationPresentationOptionAlert | UNNotificationPresentationOptionBadge);"
                 ],
-                "didReceiveRemoteNotification": [
-                    "[[RNFirebaseNotifications instance] didReceiveRemoteNotification:userInfo fetchCompletionHandler:completionHandler];"
-                ],
-                "didRegisterUserNotificationSettings": [
-                    "[[RNFirebaseMessaging instance] didRegisterUserNotificationSettings:notificationSettings];"
+                "didReceiveNotificationResponse": [
+                    "[RNCPushNotificationIOS didReceiveNotificationResponse:response];",
+                    "completionHandler();"
                 ]
-            },
-            "pods": {
-                "Firebase/Core": {
-                    "version": "~> 6.19.0"
-                },
-                "Firebase/Messaging": {
-                    "version": "~> 6.19.0"
-                },
-                "GoogleUtilities": {
-                    "version": "~> 6.5.1"
-                }
             }
         }
     },
-    "bluetooth": {
+    "firebaseAndroid": {
+        "android": {
+            "gradle": {
+                "classpaths": [
+                    "com.google.gms:google-services:4.3.3"
+                ],
+                "plugins": [
+                    "com.google.gms.google-services"
+                ]
+            }
+        }
+    },
+    "firebaseIos": {
         "ios": {
-            "pods": {
-                "react-native-ble-plx-swift": {
-                    "path": "react-native-ble-plx"
-                }
+            "AppDelegate": {
+                "imports": [
+                    "#import <Firebase.h>"
+                ],
+                "didFinishLaunchingWithOptions": [
+                    "[FIRApp configure];"
+                ]
             }
         }
     },

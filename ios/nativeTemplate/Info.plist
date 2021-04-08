@@ -2,6 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+      <string>mailto</string>
+      <string>tel</string>
+    </array>
     <key>CFBundleDevelopmentRegion</key>
     <string>en</string>
     <key>CFBundleDisplayName</key>
@@ -17,35 +22,15 @@
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>
-    <string>1.0.2</string>
+    <string>0.0.0</string>
     <key>CFBundleSignature</key>
     <string>????</string>
-    <key>CFBundleURLTypes</key>
-    <array>
-      <dict>
-        <key>CFBundleTypeRole</key>
-        <string>Editor</string>
-        <key>CFBundleURLName</key>
-        <string>mycmh</string>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>mycmh</string>
-        </array>
-      </dict>
-    </array>
     <key>CFBundleVersion</key>
     <string>1</string>
     <key>CodePushKey</key>
     <string/>
     <key>GoogleMapsApiKey</key>
     <string/>
-    <key>ITSAppUsesNonExemptEncryption</key>
-    <false/>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-      <string>mailto</string>
-      <string>tel</string>
-    </array>
     <key>LSRequiresIPhoneOS</key>
     <true/>
     <key>NSAppTransportSecurity</key>
@@ -102,5 +87,11 @@
     </array>
     <key>UIViewControllerBasedStatusBarAppearance</key>
     <false/>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>To use that feature the app needs access to your location.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>To use that feature the app needs access to your location.</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>To use that feature the app needs access to your location.</string>
   </dict>
 </plist>
