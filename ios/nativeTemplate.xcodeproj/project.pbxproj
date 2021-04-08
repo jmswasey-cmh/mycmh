@@ -713,6 +713,10 @@
 				SWIFT_VERSION = 4.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				TARGETED_DEVICE_FAMILY = "1";
+				DEVELOPMENT_TEAM = 67FPVWNFJF;
+				PROVISIONING_PROFILE_SPECIFIER = "MyCMH App Store";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: The Children's Museum, Inc. (67FPVWNFJF)";
+				CODE_SIGN_STYLE = Manual;
 			};
 			name = Debug;
 		};
@@ -782,12 +786,15 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(PRODUCT_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "MyCMH App Store";
 				SWIFT_INCLUDE_PATHS = "$(inherited) ${PROJECT_DIR} ${SRCROOT}/MendixNative";
 				SWIFT_OBJC_BRIDGING_HEADER = "nativeTemplate-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				TARGETED_DEVICE_FAMILY = "1";
+				DEVELOPMENT_TEAM = 67FPVWNFJF;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: The Children's Museum, Inc. (67FPVWNFJF)";
+				CODE_SIGN_STYLE = Manual;
 			};
 			name = Release;
 		};
@@ -804,9 +811,9 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = nativeTemplate/nativeTemplate.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = BC32QNM6AD;
+				DEVELOPMENT_TEAM = 67FPVWNFJF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"${SRCROOT}/MendixNative",
@@ -836,6 +843,8 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1";
+				PROVISIONING_PROFILE_SPECIFIER = "MyCMH App Store";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: The Children's Museum, Inc. (67FPVWNFJF)";
 			};
 			name = Debug;
 		};
@@ -852,10 +861,10 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = nativeTemplate/nativeTemplate.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = BC32QNM6AD;
+				DEVELOPMENT_TEAM = 67FPVWNFJF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"${SRCROOT}/MendixNative",
@@ -883,6 +892,8 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1";
+				PROVISIONING_PROFILE_SPECIFIER = "MyCMH App Store";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: The Children's Museum, Inc. (67FPVWNFJF)";
 			};
 			name = Release;
 		};
@@ -930,6 +941,10 @@
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 				TARGETED_DEVICE_FAMILY = "1";
+				DEVELOPMENT_TEAM = 67FPVWNFJF;
+				PROVISIONING_PROFILE_SPECIFIER = "MyCMH App Store";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: The Children's Museum, Inc. (67FPVWNFJF)";
+				CODE_SIGN_STYLE = Manual;
 			};
 			name = ReleaseDevApp;
 		};
@@ -999,12 +1014,15 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(PRODUCT_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "MyCMH App Store";
 				SWIFT_INCLUDE_PATHS = "$(inherited) ${PROJECT_DIR} ${SRCROOT}/MendixNative";
 				SWIFT_OBJC_BRIDGING_HEADER = "nativeTemplate-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				TARGETED_DEVICE_FAMILY = "1";
+				DEVELOPMENT_TEAM = 67FPVWNFJF;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: The Children's Museum, Inc. (67FPVWNFJF)";
+				CODE_SIGN_STYLE = Manual;
 			};
 			name = ReleaseDevApp;
 		};
@@ -1021,10 +1039,10 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = nativeTemplate/nativeTemplate.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = BC32QNM6AD;
+				DEVELOPMENT_TEAM = 67FPVWNFJF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"${SRCROOT}/MendixNative",
@@ -1052,6 +1070,8 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1";
+				PROVISIONING_PROFILE_SPECIFIER = "MyCMH App Store";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: The Children's Museum, Inc. (67FPVWNFJF)";
 			};
 			name = ReleaseDevApp;
 		};
@@ -1106,6 +1126,10 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1";
+				DEVELOPMENT_TEAM = 67FPVWNFJF;
+				PROVISIONING_PROFILE_SPECIFIER = "MyCMH App Store";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: The Children's Museum, Inc. (67FPVWNFJF)";
+				CODE_SIGN_STYLE = Manual;
 			};
 			name = Debug;
 		};
@@ -1153,6 +1177,10 @@
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 				TARGETED_DEVICE_FAMILY = "1";
+				DEVELOPMENT_TEAM = 67FPVWNFJF;
+				PROVISIONING_PROFILE_SPECIFIER = "MyCMH App Store";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: The Children's Museum, Inc. (67FPVWNFJF)";
+				CODE_SIGN_STYLE = Manual;
 			};
 			name = Release;
 		};
