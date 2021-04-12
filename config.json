@@ -1,6 +1,6 @@
 {
     "configVersion": 1,
-    "appIdentifier": "com.childrensmuseumhouston.mycmh",
+    "appIdentifier": "com.mycmh.childrensmuseumhouston",
     "appName": "MyCMH",
     "bundleName": {
         "main": "morecmh",
