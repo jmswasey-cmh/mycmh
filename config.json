@@ -1,10 +1,10 @@
 {
     "configVersion": 1,
-    "appIdentifier": "com.mycmh.childrensmuseumhouston",
+    "appIdentifier": "com.childrensmuseumhouston.mycmh",
     "appName": "MyCMH",
     "bundleName": {
-        "main": "MyCMH",
-        "dev": "MyCMHDev"
+        "main": "morecmh",
+        "dev": "morecmhDev"
     },
     "deviceTarget": {
         "phone": true,
