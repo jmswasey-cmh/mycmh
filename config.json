@@ -1,6 +1,6 @@
 {
     "configVersion": 1,
-    "appIdentifier": "com.mycmh.childrensmuseumhouston",
+    "appIdentifier": "com.childrensmuseumhouston.mycmh",
     "appName": "MyCMH",
     "bundleName": {
         "main": "morecmh",
@@ -48,7 +48,7 @@
             "enabled": false
         }
     },
-    "appVersion": "1.0.3",
-    "buildNumber": 1,
+    "appVersion": "1.0.2",
+    "buildNumber": 3,
     "runtimeUrl": "https://mycmh.mendixcloud.com"
 }
