@@ -42,7 +42,7 @@
             "enabled": false
         },
         "localNotifications": {
-            "enabled": false
+            "enabled": true
         },
         "appCenterOTA": {
             "enabled": false
