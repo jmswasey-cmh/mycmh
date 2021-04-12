@@ -3,8 +3,8 @@
     "appIdentifier": "com.mycmh.childrensmuseumhouston",
     "appName": "MyCMH",
     "bundleName": {
-        "main": "mycmh",
-        "dev": "mycmhDev"
+        "main": "morecmh",
+        "dev": "morecmhDev"
     },
     "deviceTarget": {
         "phone": true,
