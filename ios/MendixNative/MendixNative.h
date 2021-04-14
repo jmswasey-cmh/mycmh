@@ -14,4 +14,3 @@
 #import "MendixReactWindow.h"
 #import "MendixBackwardsCompatUtility.h"
 #import "RuntimeInfoProvider.h"
-#import "DevAppMenuUIAlertController.h"

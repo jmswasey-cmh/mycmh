@@ -43,8 +43,8 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
-    static private final int CAMERA_REQUEST = 1;
-    private final Executor httpExecutor = Executors.newSingleThreadExecutor();
+    static private int CAMERA_REQUEST = 1;
+    private Executor httpExecutor = Executors.newSingleThreadExecutor();
     private ZXingScannerView cameraView;
     private AppPreferences appPreferences;
     private Button launchAppButton;
@@ -74,14 +74,16 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
 
         appUrl.setText(appPreferences.getAppUrl());
         devModeCheckBox.setChecked(appPreferences.isDevModeEnabled());
+
+        if (getIntent().getData() != null && getIntent().getAction() != null) {
+            this.launchApp(appPreferences.getAppUrl(), getIntent());
+        }
     }
 
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (intent.getExtras() != null) {
-            launchApp(appPreferences.getAppUrl());
-        }
+        this.launchApp(appPreferences.getAppUrl(), intent);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -103,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
         try {
             JSONObject json = new JSONObject(rawResult.getText());
             String url = json.getString("url");
-            launchApp(url);
+            launchApp(url, null);
         } catch (JSONException e) {
             Toast.makeText(MainActivity.this, R.string.qr_code_invalid, Toast.LENGTH_LONG).show();
         }
@@ -123,11 +125,11 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
         loaderView.setOnTouchListener((view, event) -> true);
 
         appUrl.setOnEditorActionListener((view, actionId, keyEvent) -> {
-            launchApp(appUrl.getText().toString());
+            launchApp(appUrl.getText().toString(), null);
             return false;
         });
 
-        launchAppButton.setOnClickListener((view) -> launchApp(appUrl.getText().toString()));
+        launchAppButton.setOnClickListener((view) -> launchApp(appUrl.getText().toString(), null));
     }
 
     private void isPackagerRunning(String appUrl, Consumer<Boolean> result) {
@@ -181,24 +183,32 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
         }
     }
 
-    private void launchApp(String url) {
+    private void launchApp(String url, Intent passedIntent) {
         disableUIInteraction(true);
         isPackagerRunning(url, (res) -> {
             if (!res) {
                 disableUIInteraction(false);
                 return;
             }
+
             boolean clearData = clearDataCheckBox.isChecked();
-            boolean devModeEnabled = devModeCheckBox.isChecked();
-            String runtimeUrl = AppUrl.forRuntime(url);
-
-            appPreferences.setAppUrl(AppUrl.forRuntime(runtimeUrl));
-
             Intent intent = new Intent(this, MendixReactActivity.class);
+            boolean devModeEnabled = devModeCheckBox.isChecked();
             MxConfiguration.WarningsFilter warningsFilter = devModeEnabled ? MxConfiguration.WarningsFilter.partial : MxConfiguration.WarningsFilter.none;
-            MendixApp mendixApp = new MendixApp(runtimeUrl, warningsFilter, devModeEnabled, true);
+            MendixApp mendixApp = new MendixApp(AppUrl.forRuntime(url), warningsFilter, devModeEnabled);
             intent.putExtra(MendixReactActivity.MENDIX_APP_INTENT_KEY, mendixApp);
             intent.putExtra(MendixReactActivity.CLEAR_DATA, clearData);
+
+            if (passedIntent != null) {
+                if (passedIntent.getData() != null) {
+                    intent.setData(passedIntent.getData());
+                }
+
+                if (passedIntent.getAction() != null) {
+                    intent.setAction(passedIntent.getAction());
+                }
+            }
+
             startActivity(intent);
             disableUIInteraction(false);
         });
