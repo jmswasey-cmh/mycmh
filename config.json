@@ -3,8 +3,8 @@
     "appIdentifier": "com.mycmh.childrensmuseumhouston",
     "appName": "MyCMH",
     "bundleName": {
-        "main": "morecmh",
-        "dev": "morecmhDev"
+        "main": "MoreCMH",
+        "dev": "MoreCMHDev"
     },
     "deviceTarget": {
         "phone": true,
@@ -12,12 +12,12 @@
     },
     "orientation": {
         "portrait": true,
-        "landscape": true
+        "landscape": false
     },
     "capabilities": {
         "deepLink": {
-            "value": "mycmh",
-            "enabled": true
+            "value": "",
+            "enabled": false
         },
         "maps": {
             "value": "",
@@ -49,6 +49,6 @@
         }
     },
     "appVersion": "1.0.2",
-    "buildNumber": 3,
+    "buildNumber": 5,
     "runtimeUrl": "https://mycmh.mendixcloud.com"
 }

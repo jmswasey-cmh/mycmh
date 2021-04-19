@@ -48,10 +48,10 @@
 
 /* Begin PBXFileReference section */
 		11502903429AC2E6E69E6482 /* libPods-dev.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dev.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07F961A680F5B00A75B9A /* MoreCMH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoreCMH.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* nativeTemplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nativeTemplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = nativeTemplate/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = nativeTemplate/Info.plist; sourceTree = "<group>"; };
-		1A0B3A922397DA2300388BF7 /* MoreCMHDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoreCMHDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A0B3A922397DA2300388BF7 /* NativeTemplateDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NativeTemplateDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A0B3A982397DA2300388BF7 /* LaunchAppViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = LaunchAppViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		1A0B3A9B2397DA2300388BF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchApp.storyboard; sourceTree = "<group>"; };
 		1A0B3AD22397E15800388BF7 /* MendixApp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MendixApp.storyboard; sourceTree = "<group>"; };
@@ -236,8 +236,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* MoreCMH.app */,
-				1A0B3A922397DA2300388BF7 /* MoreCMHDev.app */,
+				13B07F961A680F5B00A75B9A /* nativeTemplate.app */,
+				1A0B3A922397DA2300388BF7 /* NativeTemplateDev.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -332,7 +332,7 @@
 			);
 			name = nativeTemplate;
 			productName = "Hello World";
-			productReference = 13B07F961A680F5B00A75B9A /* MoreCMH.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* nativeTemplate.app */;
 			productType = "com.apple.product-type.application";
 		};
 		1A0B3A912397DA2300388BF7 /* dev */ = {
@@ -352,7 +352,7 @@
 			);
 			name = dev;
 			productName = Dev;
-			productReference = 1A0B3A922397DA2300388BF7 /* MoreCMHDev.app */;
+			productReference = 1A0B3A922397DA2300388BF7 /* NativeTemplateDev.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
