@@ -1,5 +1,12 @@
 require "json"
 
+XCODE_VERSION = ""
+begin
+  XCODE_VERSION << (%x[xcrun xcodebuild -version | head -1 | awk '{print $2}']).to_s.strip
+rescue RuntimeError
+  Pod::UI.warn "We could not derive your Xcode version. Verify if you have xcode command line tools installed on your machine. See https://developer.apple.com/library/archive/technotes/tn2339/_index.html"
+end
+
 def generate_pod_dependencies
   resolved_pods = {}
 
@@ -32,6 +39,13 @@ def generate_mendix_delegate
     didReceiveRemoteNotification: [],
     didRegisterUserNotificationSettings: [],
     openURL: [],
+    willPresentNotification: [],
+    didReceiveNotificationResponse: [],
+    getJSBundleFile: [],
+  }
+
+  returnHooks = { 
+    boolean_openURLWithOptions: [], 
   }
 
   capabilities_setup_config = get_capabilities_setup_config
@@ -53,11 +67,16 @@ def generate_mendix_delegate
     hooks.each do |name, hook|
       hook << capability[name.to_s].map { |line| "  #{line}" } if !capability[name.to_s].nil?
     end
+
+    returnHooks.each do |name, hook|
+      hook << capability[name.to_s].map { |line| "  #{line}" } if !capability[name.to_s].nil?
+    end
   end
 
   File.open("MendixAppDelegate.m", "w") do |file|
     mendix_app_delegate = mendix_app_delegate_template.sub("{{ imports }}", stringify(imports))
     hooks.each { |name, hook| mendix_app_delegate.sub!("{{ #{name.to_s} }}", stringify(hook)) }
+    returnHooks.each { |name, hook| mendix_app_delegate.sub!("{{ #{name.to_s} }}", stringify(hook).length > 0 ? stringify(hook) : "  return YES;" ) }
     file << mendix_app_delegate
   end
 end
@@ -65,10 +84,13 @@ end
 def mendix_app_delegate_template
   %(// DO NOT EDIT BY HAND. THIS FILE IS AUTO-GENERATED
 #import <Foundation/Foundation.h>
+#import "MendixNative/MendixNative.h"
 #import "MendixAppDelegate.h"
 {{ imports }}
 
 @implementation MendixAppDelegate
+
+static UIResponder<UIApplicationDelegate, UNUserNotificationCenterDelegate> *_Nullable delegate;
 
 + (void) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 {{ didFinishLaunchingWithOptions }}
@@ -87,8 +109,33 @@ fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHand
 {{ didRegisterUserNotificationSettings }}
 }
 
++ (BOOL) application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+{{ boolean_openURLWithOptions }}
+}
+
 + (void) application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
 {{ openURL }}
+}
+
++ (void) userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
+{{ willPresentNotification }}
+}
+
++ (void) userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
+{{ didReceiveNotificationResponse }}
+}
+
++ (UIResponder<UIApplicationDelegate, UNUserNotificationCenterDelegate> *_Nullable) delegate {
+  return delegate;
+}
+
++ (void) setDelegate:(UIResponder<UIApplicationDelegate, UNUserNotificationCenterDelegate> *_Nonnull)value {
+  delegate = value;
+}
+
++ (NSURL *) getJSBundleFile {
+{{ getJSBundleFile }}
+  return [ReactNative.instance getJSBundleFile];
 }
 
 @end\n)
