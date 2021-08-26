@@ -45,9 +45,6 @@
             "enabled": false
         }
     },
-    "appVersion": "1.0.0",
-    "buildNumber": 6,
-    "runtimeUrl": "https://mycmh-accp.mendixcloud.com",
     "permissions": [
         {
             "title": "Internet",
